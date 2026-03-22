@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Portfolio{% endblock %}</title>
-    <meta name="description" content="Personal developer portfolio for a mechatronics engineer, Django backend developer, and networking-focused builder.">
+    <title>{% block title %}{{ profile.name }} | Portfolio{% endblock %}</title>
+    <meta name="description" content="Portfolio of {{ profile.name }}, a mechatronics engineer, Django backend developer, and networking-focused builder.">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -26,7 +26,7 @@
     <div class="min-h-screen">
         <header class="sticky top-0 z-50 border-b border-white/10 bg-slate-950/90 backdrop-blur">
             <nav class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-                <a href="/" class="text-base font-semibold tracking-[0.2em] text-slate-100 uppercase transition hover:text-accent">Placeholder Name</a>
+                <a href="/" class="text-base font-semibold tracking-[0.2em] text-slate-100 uppercase transition hover:text-accent">{{ profile.name }}</a>
                 <div class="flex items-center gap-2 text-sm text-slate-300 sm:gap-4">
                     <a href="/projects/" class="rounded-full px-3 py-2 transition hover:bg-white/5 hover:text-white">Projects</a>
                     <a href="/about/" class="rounded-full px-3 py-2 transition hover:bg-white/5 hover:text-white">About</a>
@@ -40,11 +40,19 @@
         </main>
 
         <footer class="border-t border-white/10 py-10">
-            <div class="mx-auto flex max-w-6xl flex-col gap-4 px-4 text-sm text-slate-400 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
-                <p>Backend systems, mechatronics, networking, and security for real-world deployment.</p>
-                <div class="flex gap-4">
-                    <a href="https://twitter.com/jah_3li" class="transition hover:text-accent">Twitter</a>
-                    <a href="mailto:hello@example.com" class="transition hover:text-accent">Email</a>
+            <div class="mx-auto flex max-w-6xl flex-col gap-6 px-4 text-sm text-slate-400 sm:px-6 lg:px-8">
+                <div class="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
+                    <p>{{ profile.name }} builds backend systems, mechatronics solutions, networking, and security-minded tools for real-world deployment.</p>
+                    <div class="flex flex-wrap gap-3">
+                        {% for link in social_links %}
+                            <a href="{{ link.url }}" class="rounded-full border border-white/10 px-3 py-2 transition hover:border-accent/40 hover:text-white">{{ link.label }}</a>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="flex flex-wrap gap-x-6 gap-y-2 text-xs uppercase tracking-[0.25em] text-slate-500">
+                    {% for link in social_links %}
+                        <span>{{ link.label }} · {{ link.value }}</span>
+                    {% endfor %}
                 </div>
             </div>
         </footer>
