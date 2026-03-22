@@ -3,189 +3,116 @@
 {% block title %}Home | Portfolio{% endblock %}
 
 {% block content %}
-<section class="relative overflow-hidden">
-    <div class="absolute inset-0 bg-grid opacity-[0.06]"></div>
-    <div class="mx-auto max-w-7xl px-4 pb-16 pt-12 sm:px-6 lg:px-8 lg:pb-24 lg:pt-20">
-        <div class="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-stretch">
-            <div class="relative aurora overflow-hidden rounded-[2rem] border border-white/10 glass-panel p-8 shadow-glow sm:p-10">
-                <div class="relative z-10">
-                    <p class="section-label inline-flex rounded-full border border-sky-300/20 bg-sky-400/10 px-4 py-2 text-xs font-medium uppercase text-sky-200">Backend · Mechatronics · Networking · Security</p>
-                    <h1 class="mt-6 max-w-4xl text-4xl font-semibold leading-tight text-white sm:text-5xl lg:text-6xl">{{ profile.headline }}</h1>
-                    <p class="mt-6 max-w-3xl text-lg leading-8 text-slate-300">{{ profile.name }} is a mechatronics engineer, Django backend developer, CCNA-certified network practitioner, and cybersecurity enthusiast focused on shipping systems that can survive operational reality.</p>
-                </div>
-
-                <div class="relative z-10 mt-8 flex flex-col gap-3 sm:flex-row">
-                    <a href="/projects/" class="inline-flex items-center justify-center rounded-full bg-sky-400 px-6 py-3 font-medium text-slate-950 transition duration-200 hover:-translate-y-0.5 hover:bg-sky-300">View Projects</a>
-                    <a href="/contact/" class="inline-flex items-center justify-center rounded-full border border-white/15 px-6 py-3 font-medium text-white transition duration-200 hover:-translate-y-0.5 hover:border-sky-300/50 hover:bg-white/5">Contact Me</a>
-                    <a href="{{ profile.github_url }}" target="_blank" rel="noreferrer" class="inline-flex items-center justify-center rounded-full border border-sky-300/20 bg-sky-400/10 px-6 py-3 font-medium text-sky-100 transition duration-200 hover:-translate-y-0.5 hover:border-sky-300/50 hover:bg-sky-400/20">GitHub</a>
-                </div>
-
-                <div class="relative z-10 mt-8 grid gap-4 sm:grid-cols-3">
-                    <div class="rounded-3xl border border-white/10 bg-slate-950/60 p-5">
-                        <p class="text-xs uppercase tracking-[0.3em] text-slate-500">Focus</p>
-                        <p class="mt-3 text-lg font-semibold text-white">Deployment-ready systems</p>
-                    </div>
-                    <div class="rounded-3xl border border-white/10 bg-slate-950/60 p-5">
-                        <p class="text-xs uppercase tracking-[0.3em] text-slate-500">Availability</p>
-                        <p class="mt-3 text-lg font-semibold text-white">{{ profile.availability }}</p>
-                    </div>
-                    <div class="rounded-3xl border border-white/10 bg-slate-950/60 p-5">
-                        <p class="text-xs uppercase tracking-[0.3em] text-slate-500">Location</p>
-                        <p class="mt-3 text-lg font-semibold text-white">{{ profile.location }}</p>
-                    </div>
-                </div>
+<section class="mx-auto max-w-6xl px-4 pb-16 pt-14 sm:px-6 lg:px-8 lg:pb-24 lg:pt-20">
+    <div class="grid gap-10 lg:grid-cols-[1.3fr_0.7fr] lg:items-end">
+        <div class="space-y-6">
+            <p class="inline-flex rounded-full border border-sky-400/20 bg-sky-400/10 px-4 py-2 text-xs font-medium uppercase tracking-[0.3em] text-sky-300">Backend · Mechatronics · Networking · Security</p>
+            <div class="space-y-4">
+                <h1 class="max-w-4xl text-4xl font-semibold leading-tight text-white sm:text-5xl lg:text-6xl">Building software + hardware systems for real-world problems</h1>
+                <p class="max-w-2xl text-lg leading-8 text-slate-300">Placeholder Name is a mechatronics engineer and Django backend developer focused on deployment-ready systems across mobility, IoT, infrastructure, and resilient networking.</p>
             </div>
-
-            <div class="grid gap-4">
-                <div class="rounded-[2rem] border border-white/10 bg-slate-900/80 p-6 shadow-glow transition duration-300 hover:-translate-y-1">
-                    <div class="flex items-start justify-between gap-4">
-                        <div>
-                            <p class="section-label text-sm uppercase text-sky-300">Featured Project</p>
-                            <h2 class="mt-3 text-3xl font-semibold text-white">{{ featured_project.title }}</h2>
-                        </div>
-                        <span class="rounded-full border border-sky-300/20 bg-sky-400/10 px-3 py-1 text-xs font-medium uppercase tracking-[0.25em] text-sky-200">Real-world build</span>
-                    </div>
-                    <p class="mt-5 text-sm leading-7 text-slate-300">{{ featured_project.description }}</p>
-                    <div class="mt-6 grid grid-cols-2 gap-3 text-sm text-slate-200">
-                        <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
-                            <p class="text-slate-500">Tech stack</p>
-                            <p class="mt-2 font-medium text-white">{{ featured_project.tech_stack }}</p>
-                        </div>
-                        <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
-                            <p class="text-slate-500">Status</p>
-                            <p class="mt-2 font-medium text-white">{{ featured_project.status }}</p>
-                        </div>
-                    </div>
-                    <div class="mt-6 flex flex-wrap gap-3">
-                        <a href="/projects/" class="inline-flex rounded-full bg-white px-5 py-2.5 text-sm font-medium text-slate-950 transition hover:bg-slate-200">View Project</a>
-                        <a href="{{ profile.linkedin_url }}" target="_blank" rel="noreferrer" class="inline-flex rounded-full border border-white/10 px-5 py-2.5 text-sm font-medium text-white transition hover:border-sky-300/40 hover:bg-white/5">LinkedIn</a>
-                    </div>
-                </div>
-                <div class="grid gap-4 sm:grid-cols-2">
-                    <div class="rounded-[2rem] border border-white/10 bg-white/[0.03] p-6 shadow-soft">
-                        <p class="text-sm uppercase tracking-[0.3em] text-slate-500">Project count</p>
-                        <p class="mt-3 text-4xl font-semibold text-white">{{ featured_count }}</p>
-                        <p class="mt-2 text-sm text-slate-400">Curated builds spanning software, mechatronics, and infrastructure.</p>
-                    </div>
-                    <div class="rounded-[2rem] border border-white/10 bg-white/[0.03] p-6 shadow-soft">
-                        <p class="text-sm uppercase tracking-[0.3em] text-slate-500">Positioning</p>
-                        <p class="mt-3 text-4xl font-semibold text-white">Top 4</p>
-                        <p class="mt-2 text-sm text-slate-400">Backend, platform, IoT, and systems-oriented engineering work.</p>
-                    </div>
-                </div>
+            <div class="flex flex-col gap-3 sm:flex-row">
+                <a href="/projects/" class="inline-flex items-center justify-center rounded-full bg-sky-400 px-6 py-3 font-medium text-slate-950 transition duration-200 hover:-translate-y-0.5 hover:bg-sky-300">View Projects</a>
+                <a href="/contact/" class="inline-flex items-center justify-center rounded-full border border-white/15 px-6 py-3 font-medium text-white transition duration-200 hover:-translate-y-0.5 hover:border-sky-300/50 hover:bg-white/5">Contact Me</a>
             </div>
         </div>
-
-        <div class="mt-6 grid gap-4 md:grid-cols-3">
-            <div class="rounded-[2rem] border border-white/10 bg-white/[0.03] p-6 shadow-soft">
-                <p class="section-label text-sm uppercase text-sky-300">For Recruiters</p>
-                <p class="mt-3 text-lg font-semibold text-white">A clean snapshot of engineering depth and role fit.</p>
-            </div>
-            <div class="rounded-[2rem] border border-white/10 bg-white/[0.03] p-6 shadow-soft">
-                <p class="section-label text-sm uppercase text-sky-300">For Founders</p>
-                <p class="mt-3 text-lg font-semibold text-white">Practical product thinking focused on shipping, not fluff.</p>
-            </div>
-            <div class="rounded-[2rem] border border-white/10 bg-white/[0.03] p-6 shadow-soft">
-                <p class="section-label text-sm uppercase text-sky-300">For Teams</p>
-                <p class="mt-3 text-lg font-semibold text-white">Cross-disciplinary capability across software, hardware, and infrastructure.</p>
+        <div class="rounded-3xl border border-white/10 bg-gradient-to-br from-slate-900 to-slate-950 p-6 shadow-glow transition duration-300 hover:-translate-y-1">
+            <p class="text-sm uppercase tracking-[0.3em] text-slate-400">Launch-ready focus</p>
+            <div class="mt-6 space-y-4">
+                <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
+                    <p class="text-sm text-slate-400">Featured work</p>
+                    <p class="mt-2 text-2xl font-semibold text-white">{{ featured_project.title }}</p>
+                    <p class="mt-2 text-sm leading-7 text-slate-300">{% if featured_project.description %}{{ featured_project.description }}{% endif %}</p>
+                </div>
+                <div class="grid grid-cols-2 gap-3 text-sm text-slate-300">
+                    <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
+                        <p class="text-slate-400">Projects</p>
+                        <p class="mt-2 text-2xl font-semibold text-white">{{ featured_count }}</p>
+                    </div>
+                    <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
+                        <p class="text-slate-400">Stack</p>
+                        <p class="mt-2 text-2xl font-semibold text-white">4 domains</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
 <section class="border-y border-white/10 bg-slate-900/40 py-16 lg:py-20">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="max-w-3xl space-y-4">
-            <p class="section-label text-sm font-medium uppercase text-sky-300">Tech Stack</p>
-            <h2 class="text-3xl font-semibold text-white sm:text-4xl">Cross-disciplinary execution across software, embedded systems, networking, and security.</h2>
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div class="max-w-2xl space-y-4">
+            <p class="text-sm font-medium uppercase tracking-[0.3em] text-sky-300">Tech Stack</p>
+            <h2 class="text-3xl font-semibold text-white sm:text-4xl">Cross-disciplinary systems work, organized for clarity.</h2>
         </div>
         <div class="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-            <article class="rounded-[2rem] border border-white/10 bg-slate-950/80 p-6 shadow-soft transition duration-300 hover:-translate-y-1 hover:border-sky-300/30">
+            <article class="rounded-3xl border border-white/10 bg-slate-950/80 p-6 transition duration-300 hover:-translate-y-1 hover:border-sky-300/30 hover:bg-slate-950">
                 <p class="text-3xl">💻</p>
                 <h3 class="mt-4 text-xl font-semibold text-white">Software</h3>
                 <p class="mt-3 text-sm leading-7 text-slate-300">Python, Django, DRF, React Native</p>
             </article>
-            <article class="rounded-[2rem] border border-white/10 bg-slate-950/80 p-6 shadow-soft transition duration-300 hover:-translate-y-1 hover:border-sky-300/30">
+            <article class="rounded-3xl border border-white/10 bg-slate-950/80 p-6 transition duration-300 hover:-translate-y-1 hover:border-sky-300/30 hover:bg-slate-950">
                 <p class="text-3xl">⚙️</p>
                 <h3 class="mt-4 text-xl font-semibold text-white">Mechatronics</h3>
                 <p class="mt-3 text-sm leading-7 text-slate-300">Arduino, Sensors, Embedded Systems</p>
             </article>
-            <article class="rounded-[2rem] border border-white/10 bg-slate-950/80 p-6 shadow-soft transition duration-300 hover:-translate-y-1 hover:border-sky-300/30">
+            <article class="rounded-3xl border border-white/10 bg-slate-950/80 p-6 transition duration-300 hover:-translate-y-1 hover:border-sky-300/30 hover:bg-slate-950">
                 <p class="text-3xl">🌐</p>
                 <h3 class="mt-4 text-xl font-semibold text-white">Networking</h3>
                 <p class="mt-3 text-sm leading-7 text-slate-300">CCNA, Routing, Switching</p>
             </article>
-            <article class="rounded-[2rem] border border-white/10 bg-slate-950/80 p-6 shadow-soft transition duration-300 hover:-translate-y-1 hover:border-sky-300/30">
+            <article class="rounded-3xl border border-white/10 bg-slate-950/80 p-6 transition duration-300 hover:-translate-y-1 hover:border-sky-300/30 hover:bg-slate-950">
                 <p class="text-3xl">🛡️</p>
                 <h3 class="mt-4 text-xl font-semibold text-white">Cybersecurity</h3>
-                <p class="mt-3 text-sm leading-7 text-slate-300">Security fundamentals, threat-aware system design</p>
+                <p class="mt-3 text-sm leading-7 text-slate-300">Security fundamentals, system design</p>
             </article>
         </div>
     </div>
 </section>
 
-<section class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
-    <div class="grid gap-6 lg:grid-cols-[1.05fr_0.95fr]">
-        <div class="rounded-[2rem] border border-white/10 bg-white/[0.03] p-8 shadow-soft">
-            <p class="section-label text-sm font-medium uppercase text-sky-300">What teams can hire for</p>
-            <h2 class="mt-4 text-3xl font-semibold text-white sm:text-4xl">A portfolio positioned for engineering roles, freelance delivery, and technical partnerships.</h2>
-            <div class="mt-8 grid gap-4 sm:grid-cols-2">
-                {% for role in role_focus %}
-                    <div class="rounded-[1.75rem] border border-white/10 bg-slate-950/70 p-5 transition duration-300 hover:border-sky-300/30">
-                        <p class="text-lg font-semibold text-white">{{ role }}</p>
-                        <p class="mt-2 text-sm leading-7 text-slate-400">Practical systems thinking with clear architecture, delivery discipline, and real-world constraints.</p>
-                    </div>
-                {% endfor %}
-            </div>
+<section class="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+    <div class="grid gap-8 lg:grid-cols-[1fr_0.55fr] lg:items-center">
+        <div class="space-y-4">
+            <p class="text-sm font-medium uppercase tracking-[0.3em] text-sky-300">Featured Project</p>
+            <h2 class="text-3xl font-semibold text-white sm:text-4xl">Bike-Hailing App</h2>
+            <p class="max-w-2xl text-base leading-8 text-slate-300">Built with Django for the Nigerian mobility environment, this platform prioritizes dispatch clarity, operational simplicity, and the realities of real-world deployment.</p>
         </div>
-        <div class="rounded-[2rem] border border-white/10 bg-gradient-to-br from-sky-400/10 via-slate-900 to-slate-950 p-8 shadow-glow">
-            <p class="section-label text-sm font-medium uppercase text-sky-300">Career Snapshot</p>
-            <div class="mt-6 space-y-5">
-                <div class="rounded-[1.75rem] border border-white/10 bg-slate-950/70 p-5">
-                    <p class="text-sm uppercase tracking-[0.25em] text-slate-500">Strength</p>
-                    <p class="mt-2 text-xl font-semibold text-white">Build fast. Solve real problems. Scale later.</p>
-                </div>
-                <div class="rounded-[1.75rem] border border-white/10 bg-slate-950/70 p-5">
-                    <p class="text-sm uppercase tracking-[0.25em] text-slate-500">Why it matters</p>
-                    <p class="mt-2 text-sm leading-7 text-slate-300">This positioning makes the portfolio useful for recruiters, hiring managers, founders, and collaborators looking for technical execution with systems depth.</p>
-                </div>
-                <div class="flex flex-wrap gap-3">
-                    <a href="{{ profile.github_url }}" target="_blank" rel="noreferrer" class="inline-flex rounded-full bg-white px-5 py-2.5 text-sm font-medium text-slate-950 transition hover:bg-slate-200">GitHub Repo</a>
-                    <a href="{{ profile.linkedin_url }}" target="_blank" rel="noreferrer" class="inline-flex rounded-full border border-sky-300/30 px-5 py-2.5 text-sm font-medium text-white transition hover:border-sky-300 hover:bg-sky-400/10">LinkedIn</a>
-                </div>
-            </div>
+        <div class="rounded-3xl border border-white/10 bg-white/5 p-6 transition duration-300 hover:-translate-y-1 hover:border-sky-300/30">
+            <p class="text-sm uppercase tracking-[0.3em] text-slate-400">Deployment</p>
+            <ul class="mt-4 space-y-3 text-sm leading-7 text-slate-300">
+                <li>• Django backend architecture</li>
+                <li>• Built for Nigeria-based use cases</li>
+                <li>• Real-world operations as the priority</li>
+            </ul>
+            <a href="/projects/" class="mt-6 inline-flex rounded-full border border-sky-300/30 px-5 py-2.5 text-sm font-medium text-white transition hover:border-sky-300 hover:bg-sky-400/10">View Project</a>
         </div>
     </div>
 </section>
 
 <section class="border-y border-white/10 bg-slate-900/40 py-16 lg:py-20">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="grid gap-8 lg:grid-cols-[1fr_0.7fr] lg:items-center">
-            <div class="space-y-4">
-                <p class="section-label text-sm font-medium uppercase text-sky-300">About Preview</p>
-                <h2 class="text-3xl font-semibold text-white sm:text-4xl">Engineering discipline applied to digital products, infrastructure, and field-ready systems.</h2>
-                <p class="max-w-3xl text-base leading-8 text-slate-300">From mechatronics and embedded work to backend systems and CCNA-aligned networking knowledge, the focus stays consistent: ship practical systems that hold up under operational pressure.</p>
-            </div>
-            <div class="flex items-center gap-3 lg:justify-end">
-                <a href="/about/" class="inline-flex rounded-full border border-white/15 px-6 py-3 font-medium text-white transition hover:-translate-y-0.5 hover:border-sky-300/50 hover:bg-white/5">More About Me</a>
-                <a href="/contact/" class="inline-flex rounded-full bg-sky-400 px-6 py-3 font-medium text-slate-950 transition hover:bg-sky-300">Hire Me</a>
-            </div>
+    <div class="mx-auto grid max-w-6xl gap-8 px-4 sm:px-6 lg:grid-cols-[1fr_0.5fr] lg:px-8">
+        <div class="space-y-4">
+            <p class="text-sm font-medium uppercase tracking-[0.3em] text-sky-300">About</p>
+            <h2 class="text-3xl font-semibold text-white sm:text-4xl">Engineering discipline applied to digital systems.</h2>
+            <p class="max-w-2xl text-base leading-8 text-slate-300">From mechatronics and embedded work to backend systems and CCNA-aligned networking knowledge, the focus is simple: ship practical systems that solve physical and operational problems first.</p>
+        </div>
+        <div class="flex items-center lg:justify-end">
+            <a href="/about/" class="inline-flex rounded-full border border-white/15 px-6 py-3 font-medium text-white transition hover:-translate-y-0.5 hover:border-sky-300/50 hover:bg-white/5">More About Me</a>
         </div>
     </div>
 </section>
 
-<section class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
-    <div class="rounded-[2rem] border border-sky-300/20 bg-gradient-to-br from-sky-400/10 to-slate-900 p-8 shadow-glow sm:p-10">
-        <p class="section-label text-sm font-medium uppercase text-sky-300">Contact</p>
+<section class="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+    <div class="rounded-[2rem] border border-sky-300/20 bg-gradient-to-br from-sky-400/10 to-slate-900 p-8 sm:p-10">
+        <p class="text-sm font-medium uppercase tracking-[0.3em] text-sky-300">Contact</p>
         <div class="mt-4 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
             <div>
-                <h2 class="text-3xl font-semibold text-white sm:text-4xl">Open to technical collaboration, engineering roles, and deployment-focused product work.</h2>
-                <p class="mt-3 max-w-3xl text-base leading-8 text-slate-300">Reach out for backend engineering, mechatronics collaboration, networking work, cybersecurity-minded infrastructure projects, or job opportunities that value practical execution.</p>
+                <h2 class="text-3xl font-semibold text-white sm:text-4xl">Open to technical collaboration and deployment-focused work.</h2>
+                <p class="mt-3 max-w-2xl text-base leading-8 text-slate-300">Reach out for backend engineering, mechatronics collaboration, networking work, or security-minded infrastructure projects.</p>
             </div>
             <div class="flex flex-col gap-3 sm:flex-row">
-                <a href="{{ profile.twitter_url }}" target="_blank" rel="noreferrer" class="inline-flex items-center justify-center rounded-full bg-sky-400 px-6 py-3 font-medium text-slate-950 transition hover:bg-sky-300">Twitter</a>
-                <a href="{{ profile.github_url }}" target="_blank" rel="noreferrer" class="inline-flex items-center justify-center rounded-full border border-white/15 px-6 py-3 font-medium text-white transition hover:border-sky-300/50 hover:bg-white/5">GitHub</a>
-                <a href="mailto:{{ profile.email }}" class="inline-flex items-center justify-center rounded-full border border-white/15 px-6 py-3 font-medium text-white transition hover:border-sky-300/50 hover:bg-white/5">Email</a>
+                <a href="https://twitter.com/jah_3li" class="inline-flex items-center justify-center rounded-full bg-sky-400 px-6 py-3 font-medium text-slate-950 transition hover:bg-sky-300">Twitter</a>
+                <a href="mailto:hello@example.com" class="inline-flex items-center justify-center rounded-full border border-white/15 px-6 py-3 font-medium text-white transition hover:border-sky-300/50 hover:bg-white/5">Email</a>
             </div>
         </div>
     </div>

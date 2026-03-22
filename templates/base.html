@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="dark scroll-smooth">
+<html lang="en" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,106 +12,39 @@
             theme: {
                 extend: {
                     colors: {
-                        accent: '#38bdf8',
-                        ink: '#020617',
-                        panel: '#0f172a'
+                        accent: '#38bdf8'
                     },
                     boxShadow: {
-                        glow: '0 0 0 1px rgba(56, 189, 248, 0.16), 0 24px 80px rgba(2, 6, 23, 0.6)',
-                        soft: '0 16px 60px rgba(2, 6, 23, 0.38)'
-                    },
-                    backgroundImage: {
-                        grid: 'radial-gradient(circle at center, rgba(148, 163, 184, 0.15) 1px, transparent 1px)'
+                        glow: '0 0 0 1px rgba(56, 189, 248, 0.2), 0 10px 30px rgba(15, 23, 42, 0.45)'
                     }
                 }
             }
         }
     </script>
-    <style>
-        .bg-grid { background-size: 32px 32px; }
-        .aurora::before,
-        .aurora::after {
-            content: '';
-            position: absolute;
-            border-radius: 9999px;
-            filter: blur(86px);
-            opacity: 0.55;
-            pointer-events: none;
-        }
-        .aurora::before {
-            width: 18rem;
-            height: 18rem;
-            top: -4rem;
-            right: -2rem;
-            background: rgba(56, 189, 248, 0.18);
-        }
-        .aurora::after {
-            width: 20rem;
-            height: 20rem;
-            bottom: -7rem;
-            left: -4rem;
-            background: rgba(168, 85, 247, 0.16);
-        }
-        .glass-panel {
-            background: linear-gradient(180deg, rgba(15, 23, 42, 0.82), rgba(15, 23, 42, 0.58));
-            backdrop-filter: blur(18px);
-        }
-        .section-label {
-            letter-spacing: 0.3em;
-        }
-    </style>
 </head>
-<body class="bg-ink bg-[radial-gradient(circle_at_top,_rgba(56,189,248,0.15),_transparent_30%),radial-gradient(circle_at_bottom,_rgba(168,85,247,0.12),_transparent_28%)] text-slate-100 antialiased selection:bg-sky-400/30 selection:text-white">
-    <div class="pointer-events-none fixed inset-x-0 top-0 z-0 h-80 bg-gradient-to-b from-sky-400/8 to-transparent"></div>
-    <div class="relative min-h-screen">
-        <header class="sticky top-0 z-50 border-b border-white/10 bg-slate-950/75 backdrop-blur-2xl">
-            <nav class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-                <div class="flex items-center gap-3">
-                    <span class="inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-sky-300/20 bg-sky-400/10 text-sm font-semibold text-sky-200 shadow-glow">ME</span>
-                    <div>
-                        <a href="/" class="text-sm font-semibold uppercase tracking-[0.34em] text-white transition hover:text-accent">{{ profile.name }}</a>
-                        <p class="text-xs text-slate-400">Systems Builder · Django · Mechatronics</p>
-                    </div>
+<body class="bg-slate-950 text-slate-100 antialiased selection:bg-sky-400/30 selection:text-white">
+    <div class="min-h-screen">
+        <header class="sticky top-0 z-50 border-b border-white/10 bg-slate-950/90 backdrop-blur">
+            <nav class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+                <a href="/" class="text-base font-semibold tracking-[0.2em] text-slate-100 uppercase transition hover:text-accent">Placeholder Name</a>
+                <div class="flex items-center gap-2 text-sm text-slate-300 sm:gap-4">
+                    <a href="/projects/" class="rounded-full px-3 py-2 transition hover:bg-white/5 hover:text-white">Projects</a>
+                    <a href="/about/" class="rounded-full px-3 py-2 transition hover:bg-white/5 hover:text-white">About</a>
+                    <a href="/contact/" class="rounded-full border border-white/10 px-3 py-2 transition hover:border-accent/40 hover:text-white">Contact</a>
                 </div>
-                <div class="hidden items-center gap-2 text-sm text-slate-300 md:flex">
-                    <a href="/projects/" class="rounded-full px-4 py-2 transition {% if request.path == '/projects/' %}bg-white/10 text-white{% else %}hover:bg-white/5 hover:text-white{% endif %}">Projects</a>
-                    <a href="/about/" class="rounded-full px-4 py-2 transition {% if request.path == '/about/' %}bg-white/10 text-white{% else %}hover:bg-white/5 hover:text-white{% endif %}">About</a>
-                    <a href="/contact/" class="rounded-full px-4 py-2 transition {% if request.path == '/contact/' %}bg-white/10 text-white{% else %}hover:bg-white/5 hover:text-white{% endif %}">Contact</a>
-                    <a href="{{ profile.linkedin_url }}" target="_blank" rel="noreferrer" class="rounded-full border border-sky-300/20 bg-sky-400/10 px-4 py-2 font-medium text-sky-100 transition hover:-translate-y-0.5 hover:border-sky-300/40 hover:bg-sky-400/20">Hire / Connect</a>
-                </div>
-                <a href="/contact/" class="rounded-full border border-white/10 px-3 py-2 text-sm text-white transition hover:border-sky-300/40 hover:bg-white/5 md:hidden">Contact</a>
             </nav>
         </header>
 
-        <main class="relative z-10">
+        <main>
             {% block content %}{% endblock %}
         </main>
 
-        <footer class="relative z-10 border-t border-white/10 py-12">
-            <div class="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[1.15fr_0.85fr] lg:px-8">
-                <div class="rounded-[2rem] border border-white/10 bg-white/[0.03] p-8 shadow-soft">
-                    <p class="text-sm font-semibold uppercase tracking-[0.3em] text-sky-300">{{ profile.name }}</p>
-                    <h2 class="mt-4 max-w-2xl text-2xl font-semibold text-white sm:text-3xl">Backend systems, mechatronics, networking, and security built for real-world deployment.</h2>
-                    <p class="mt-4 max-w-2xl text-sm leading-7 text-slate-400">A focused portfolio for hiring conversations, freelance opportunities, and technical collaborations across software, infrastructure, and hardware-adjacent products.</p>
-                </div>
-                <div class="grid gap-6 sm:grid-cols-2">
-                    <div class="rounded-[2rem] border border-white/10 bg-white/[0.03] p-6 shadow-soft">
-                        <p class="text-sm font-medium uppercase tracking-[0.3em] text-slate-500">Navigate</p>
-                        <div class="mt-4 flex flex-col gap-3 text-sm text-slate-300">
-                            <a href="/projects/" class="transition hover:text-accent">Projects</a>
-                            <a href="/about/" class="transition hover:text-accent">About</a>
-                            <a href="/contact/" class="transition hover:text-accent">Contact</a>
-                        </div>
-                    </div>
-                    <div class="rounded-[2rem] border border-white/10 bg-white/[0.03] p-6 shadow-soft">
-                        <p class="text-sm font-medium uppercase tracking-[0.3em] text-slate-500">Profiles</p>
-                        <div class="mt-4 flex flex-col gap-3 text-sm text-slate-300">
-                            <a href="{{ profile.github_url }}" target="_blank" rel="noreferrer" class="transition hover:text-accent">GitHub</a>
-                            <a href="{{ profile.linkedin_url }}" target="_blank" rel="noreferrer" class="transition hover:text-accent">LinkedIn</a>
-                            <a href="{{ profile.twitter_url }}" target="_blank" rel="noreferrer" class="transition hover:text-accent">Twitter</a>
-                            <a href="mailto:{{ profile.email }}" class="transition hover:text-accent">{{ profile.email }}</a>
-                        </div>
-                    </div>
+        <footer class="border-t border-white/10 py-10">
+            <div class="mx-auto flex max-w-6xl flex-col gap-4 px-4 text-sm text-slate-400 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
+                <p>Backend systems, mechatronics, networking, and security for real-world deployment.</p>
+                <div class="flex gap-4">
+                    <a href="https://twitter.com/jah_3li" class="transition hover:text-accent">Twitter</a>
+                    <a href="mailto:hello@example.com" class="transition hover:text-accent">Email</a>
                 </div>
             </div>
         </footer>
