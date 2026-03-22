@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}Projects | Portfolio{% endblock %}
+
+{% block content %}
+<section class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+    <div class="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-end">
+        <div class="max-w-3xl space-y-4">
+            <p class="section-label text-sm font-medium uppercase text-sky-300">Projects</p>
+            <h1 class="text-4xl font-semibold text-white sm:text-5xl">Selected systems and product work with a stronger visual presence.</h1>
+            <p class="text-base leading-8 text-slate-300">A focused mix of mobility software, embedded systems, and infrastructure thinking. This page is designed to make technical range, build clarity, and job relevance instantly visible.</p>
+        </div>
+        <div class="rounded-[2rem] border border-white/10 bg-white/[0.03] p-6 shadow-soft">
+            <p class="section-label text-sm uppercase text-slate-500">Professional Links</p>
+            <div class="mt-5 flex flex-wrap gap-3">
+                <a href="{{ profile.github_url }}" target="_blank" rel="noreferrer" class="inline-flex rounded-full bg-white px-5 py-2.5 text-sm font-medium text-slate-950 transition hover:bg-slate-200">GitHub Repo</a>
+                <a href="{{ profile.linkedin_url }}" target="_blank" rel="noreferrer" class="inline-flex rounded-full border border-sky-300/30 px-5 py-2.5 text-sm font-medium text-white transition hover:border-sky-300 hover:bg-sky-400/10">LinkedIn</a>
+                <a href="/contact/" class="inline-flex rounded-full border border-white/10 px-5 py-2.5 text-sm font-medium text-white transition hover:border-sky-300/40 hover:bg-white/5">Discuss a Role</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+        {% for project in projects %}
+            <article class="group flex h-full flex-col rounded-[2rem] border border-white/10 bg-white/[0.04] p-6 shadow-soft transition duration-300 hover:-translate-y-1 hover:border-sky-300/30 hover:bg-white/[0.07]">
+                <div class="flex items-center justify-between gap-4">
+                    <h2 class="text-2xl font-semibold text-white">{{ project.title }}</h2>
+                    <span class="rounded-full border border-sky-300/20 bg-sky-400/10 px-3 py-1 text-xs font-medium uppercase tracking-[0.2em] text-sky-200">{{ project.status }}</span>
+                </div>
+                <p class="mt-4 flex-1 text-sm leading-7 text-slate-300">{{ project.description }}</p>
+                <div class="mt-6 rounded-[1.5rem] border border-white/10 bg-slate-950/70 p-4">
+                    <p class="text-xs uppercase tracking-[0.3em] text-slate-500">Tech Stack</p>
+                    <p class="mt-2 text-sm text-slate-200">{{ project.tech_stack }}</p>
+                </div>
+                <div class="mt-5 flex items-center justify-between gap-3 text-sm">
+                    <span class="text-slate-500">Built for practical deployment.</span>
+                    <a href="{{ profile.github_url }}" target="_blank" rel="noreferrer" class="font-medium text-sky-300 transition group-hover:text-sky-200">View GitHub →</a>
+                </div>
+            </article>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

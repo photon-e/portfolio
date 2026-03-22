@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block title %}Contact | Portfolio{% endblock %}
+
+{% block content %}
+<section class="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+    <div class="rounded-[2rem] border border-white/10 bg-white/[0.04] p-8 shadow-glow sm:p-10">
+        <p class="section-label text-sm font-medium uppercase text-sky-300">Contact</p>
+        <h1 class="mt-4 max-w-4xl text-4xl font-semibold text-white sm:text-5xl">Let’s talk about systems that need to work in the real world.</h1>
+        <p class="mt-4 max-w-3xl text-base leading-8 text-slate-300">Available for backend engineering, mechatronics collaboration, networking support, security-conscious infrastructure work, and job opportunities where practical technical execution matters.</p>
+
+        <div class="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+            <a href="mailto:{{ profile.email }}" class="rounded-[2rem] border border-white/10 bg-slate-950/70 p-6 shadow-soft transition hover:-translate-y-1 hover:border-sky-300/30 hover:bg-slate-950">
+                <p class="text-sm uppercase tracking-[0.3em] text-slate-500">Email</p>
+                <p class="mt-3 text-lg font-semibold text-white">{{ profile.email }}</p>
+                <p class="mt-2 text-sm text-slate-400">Best for direct work inquiries.</p>
+            </a>
+            <a href="{{ profile.twitter_url }}" target="_blank" rel="noreferrer" class="rounded-[2rem] border border-white/10 bg-slate-950/70 p-6 shadow-soft transition hover:-translate-y-1 hover:border-sky-300/30 hover:bg-slate-950">
+                <p class="text-sm uppercase tracking-[0.3em] text-slate-500">Twitter</p>
+                <p class="mt-3 text-lg font-semibold text-white">{{ profile.twitter_handle }}</p>
+                <p class="mt-2 text-sm text-slate-400">Fastest route for social outreach.</p>
+            </a>
+            <a href="{{ profile.github_url }}" target="_blank" rel="noreferrer" class="rounded-[2rem] border border-white/10 bg-slate-950/70 p-6 shadow-soft transition hover:-translate-y-1 hover:border-sky-300/30 hover:bg-slate-950">
+                <p class="text-sm uppercase tracking-[0.3em] text-slate-500">GitHub</p>
+                <p class="mt-3 text-lg font-semibold text-white">{{ profile.github_label }}</p>
+                <p class="mt-2 text-sm text-slate-400">Code, repos, and technical credibility.</p>
+            </a>
+            <a href="{{ profile.linkedin_url }}" target="_blank" rel="noreferrer" class="rounded-[2rem] border border-white/10 bg-slate-950/70 p-6 shadow-soft transition hover:-translate-y-1 hover:border-sky-300/30 hover:bg-slate-950">
+                <p class="text-sm uppercase tracking-[0.3em] text-slate-500">LinkedIn</p>
+                <p class="mt-3 text-lg font-semibold text-white">{{ profile.linkedin_label }}</p>
+                <p class="mt-2 text-sm text-slate-400">Ideal for hiring and networking conversations.</p>
+            </a>
+        </div>
+    </div>
+
+    <div class="mt-6 grid gap-6 lg:grid-cols-[1fr_0.8fr]">
+        <section class="rounded-[2rem] border border-white/10 bg-gradient-to-br from-sky-400/10 to-slate-950 p-8 shadow-glow">
+            <p class="section-label text-sm font-medium uppercase text-sky-300">Open to work</p>
+            <h2 class="mt-4 text-3xl font-semibold text-white">Backend, platform, IoT, and systems-focused opportunities.</h2>
+            <p class="mt-4 text-sm leading-7 text-slate-300">If you're hiring for product engineering, backend systems, mobility platforms, infrastructure-heavy software, or hardware-adjacent technical roles, this portfolio is intentionally designed to start that conversation quickly.</p>
+        </section>
+        <section class="rounded-[2rem] border border-white/10 bg-white/[0.04] p-8 shadow-soft">
+            <p class="section-label text-sm font-medium uppercase text-sky-300">Best conversation starters</p>
+            <ul class="mt-5 space-y-3 text-sm leading-7 text-slate-300">
+                <li>• Building Django systems for operationally complex environments</li>
+                <li>• Mechatronics and embedded work connected to software products</li>
+                <li>• Networking-aware architecture and CCNA-grounded infrastructure thinking</li>
+                <li>• Security-conscious product and system design</li>
+            </ul>
+        </section>
+    </div>
+</section>
+{% endblock %}
