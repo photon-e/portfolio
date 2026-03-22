@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}Contact | Portfolio{% endblock %}
+{% block title %}Contact | {{ profile.name }}{% endblock %}
 
 {% block content %}
 <section class="mx-auto max-w-4xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
@@ -10,13 +10,13 @@
         <p class="mt-4 max-w-2xl text-base leading-8 text-slate-300">Available for backend engineering, mechatronics collaboration, networking support, and security-conscious infrastructure work.</p>
 
         <div class="mt-10 grid gap-4 sm:grid-cols-2">
-            <a href="mailto:hello@example.com" class="rounded-3xl border border-white/10 bg-slate-950/70 p-6 transition hover:-translate-y-1 hover:border-sky-300/30 hover:bg-slate-950">
+            <a href="mailto:{{ profile.email }}" class="rounded-3xl border border-white/10 bg-slate-950/70 p-6 transition hover:-translate-y-1 hover:border-sky-300/30 hover:bg-slate-950">
                 <p class="text-sm uppercase tracking-[0.3em] text-slate-500">Email</p>
-                <p class="mt-3 text-xl font-semibold text-white">hello@example.com</p>
+                <p class="mt-3 text-xl font-semibold text-white">{{ profile.email }}</p>
             </a>
-            <a href="https://twitter.com/jah_3li" class="rounded-3xl border border-white/10 bg-slate-950/70 p-6 transition hover:-translate-y-1 hover:border-sky-300/30 hover:bg-slate-950">
+            <a href="{{ profile.twitter_url }}" class="rounded-3xl border border-white/10 bg-slate-950/70 p-6 transition hover:-translate-y-1 hover:border-sky-300/30 hover:bg-slate-950">
                 <p class="text-sm uppercase tracking-[0.3em] text-slate-500">Twitter</p>
-                <p class="mt-3 text-xl font-semibold text-white">@jah_3li</p>
+                <p class="mt-3 text-xl font-semibold text-white">{{ profile.twitter_handle }}</p>
             </a>
         </div>
     </div>

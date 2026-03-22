@@ -1,5 +1,5 @@
 PROFILE = {
-    'name': 'Placeholder Name',
+    'name': 'Ayomide Elijah Raji',
     'headline': 'Building software + hardware systems for real-world problems',
     'email': 'hello@example.com',
     'twitter_url': 'https://twitter.com/jah_3li',
